@@ -1,0 +1,64 @@
+---
+# only the main Sass file needs front matter
+---
+
+/* フォントとスケール（控えめ） */
+$global-font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+  "Yu Gothic Medium","YuGothic","Segoe UI", Roboto, Helvetica, Arial,
+  "Noto Sans JP", sans-serif;
+$header-font-family: $global-font-family;
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'air' }}";
+@import "minimal-mistakes";
+
+/* 両日とも同じ列幅に固定 */
+.page__content table.program,
+.program table {
+  width: 100%;
+  table-layout: fixed;      /* 内容に左右されず列幅を固定 */
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.page__content table.program th,
+.page__content table.program td,
+.program table th,
+.program table td {
+  padding: .55rem .6rem;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  vertical-align: top;
+}
+
+/* 列幅を指定：1列目=時間、2列目=内容(可変)、3列目=備考 */
+.page__content table.program th:first-child,
+.page__content table.program td:first-child,
+.program table th:first-child,
+.program table td:first-child {
+  width: 10rem;
+  white-space: nowrap;      /* 時刻を折り返さない */
+}
+
+.page__content table.program th:last-child,
+.page__content table.program td:last-child,
+.program table th:last-child,
+.program table td:last-child {
+  width: 7rem;
+  white-space: nowrap;      /* 備考も固定幅 */
+}
+
+/* 中央列は長文でも崩れにくく */
+.page__content table.program td:nth-child(2),
+.program table td:nth-child(2) {
+  overflow-wrap: anywhere;  /* 括弧内なども適宜折り返す */
+}
+
+/* フッターの FEED ブロックを丸ごと非表示 */
+.page__footer-follow { display: none !important; }
+
+/* もし「Follow」は残して FEED だけ消したいならこちらだけでも可
+.page__footer-follow a[href$="feed.xml"],
+.page__footer-follow .fa-rss, 
+.page__footer-follow .fa-rss-square { display:none !important; }
+*/
+
+
