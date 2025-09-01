@@ -5,10 +5,10 @@ baseurl: "/2025-spi"
 lang: ja
 timezone: Asia/Tokyo
 
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
+# markdown: kramdown
+# kramdown:
+#   input: GFM
+#   hard_wrap: false
 
 
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
